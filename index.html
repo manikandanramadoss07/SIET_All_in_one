@@ -1,0 +1,3152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>SIET ALL IN ONE</title>
+
+<style>
+
+/* =====================================================
+   THEME
+===================================================== */
+
+:root {
+
+    --bg: #f5f8f2;
+    --card: #ffffff;
+
+    --text: #172016;
+    --muted: #687366;
+
+    --green: #198754;
+    --green-dark: #12663f;
+
+    --yellow: #f4c430;
+    --yellow-dark: #d9a900;
+
+    --border: #dfe7dc;
+
+    --success: #15803d;
+    --danger: #dc2626;
+
+    --header: rgba(255,255,255,0.94);
+
+    --shadow:
+        0 15px 40px rgba(22,52,28,0.08);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark {
+
+    --bg: #0b120d;
+    --card: #121c15;
+
+    --text: #f3f8f2;
+    --muted: #9baa9b;
+
+    --green: #42b96b;
+    --green-dark: #2c944f;
+
+    --yellow: #f4c430;
+    --yellow-dark: #d5a800;
+
+    --border: #26362a;
+
+    --header: rgba(18,28,21,0.94);
+
+    --shadow:
+        0 15px 40px rgba(0,0,0,0.35);
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+body {
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+button {
+
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    height: 76px;
+
+    background: var(--header);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 6%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+
+.logo-mark {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            var(--yellow)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-weight: 900;
+}
+
+
+.logo span {
+
+    color: var(--green);
+}
+
+
+.theme-btn {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.25s;
+}
+
+
+.theme-btn:hover {
+
+    transform:
+        rotate(15deg)
+        scale(1.05);
+
+    border-color:
+        var(--green);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding:
+        70px 25px;
+}
+
+
+.page {
+
+    display: none;
+}
+
+
+.page.active {
+
+    display: block;
+
+    animation:
+        fadeIn 0.4s ease;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding:
+        8px 16px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(244,196,48,0.18);
+
+    color:
+        var(--yellow-dark);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(35px,6vw,65px);
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+
+    letter-spacing: -2px;
+}
+
+
+.hero h1 span {
+
+    color: var(--green);
+}
+
+
+.hero p {
+
+    max-width: 720px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+.institution {
+
+    margin-top: 20px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   OPTIONS
+===================================================== */
+
+.options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 25px;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+.option-card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s,
+        border 0.3s,
+        box-shadow 0.3s;
+}
+
+
+.option-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        var(--green);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.option-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+
+    background:
+        rgba(25,135,84,0.12);
+
+    margin-bottom: 22px;
+}
+
+
+.option-card h2 {
+
+    margin-bottom: 10px;
+}
+
+
+.option-card p {
+
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            var(--green-dark)
+        );
+
+    color: white;
+
+    padding:
+        13px 22px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.primary-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(25,135,84,0.25);
+}
+
+
+.secondary-btn {
+
+    background:
+        var(--card);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+
+.secondary-btn:hover {
+
+    border-color:
+        var(--green);
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom: 30px;
+}
+
+
+.page-header h1 {
+
+    font-size: 30px;
+}
+
+
+.back-btn {
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.back-btn:hover {
+
+    color: var(--green);
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.profile-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+
+.avatar {
+
+    width: 72px;
+
+    height: 72px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            var(--yellow)
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+.profile-top p {
+
+    color: var(--muted);
+
+    margin-top: 5px;
+}
+
+
+.details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 15px;
+}
+
+
+.detail {
+
+    padding: 18px;
+
+    border-radius: 13px;
+
+    background:
+        var(--bg);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.detail label {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+
+.detail strong {
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   PROFILE STATUS
+===================================================== */
+
+.cgpa-box {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-dark),
+            var(--green)
+        );
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+}
+
+
+.cgpa-value {
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   YEAR SELECTION
+===================================================== */
+
+.year-selection {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+.year-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    text-align: center;
+}
+
+
+.year-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--green);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.year-number {
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    color:
+        var(--green);
+
+    margin-bottom: 7px;
+}
+
+
+.year-card p {
+
+    color:
+        var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   SEMESTER
+===================================================== */
+
+.semester-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+}
+
+
+.semester {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    padding: 27px;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+
+.semester:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--green);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.semester-icon {
+
+    font-size: 25px;
+
+    color:
+        var(--green);
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+
+.semester span {
+
+    display: block;
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-container {
+
+    max-width: 450px;
+
+    margin: auto;
+}
+
+
+.login-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.login-card h2 {
+
+    margin-bottom: 8px;
+}
+
+
+.login-card > p {
+
+    color:
+        var(--muted);
+
+    margin-bottom: 25px;
+}
+
+
+.input-group {
+
+    margin-bottom: 18px;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
+    outline: none;
+}
+
+
+.input-group input:focus {
+
+    border-color:
+        var(--green);
+}
+
+
+.password-wrapper {
+
+    position: relative;
+}
+
+
+.password-wrapper input {
+
+    padding-right: 45px;
+}
+
+
+.show-password {
+
+    position: absolute;
+
+    right: 13px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.error {
+
+    display: none;
+
+    background:
+        rgba(220,38,38,0.12);
+
+    color:
+        var(--danger);
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+.demo-info {
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    background:
+        var(--bg);
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    color:
+        var(--muted);
+}
+
+
+/* =====================================================
+   RESULTS
+===================================================== */
+
+.result-summary {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.summary-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    padding: 22px;
+
+    border-radius: 16px;
+}
+
+
+.summary-card span {
+
+    display: block;
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+}
+
+
+.summary-card strong {
+
+    font-size: 25px;
+}
+
+
+.result-table {
+
+    width: 100%;
+
+    border-collapse:
+        collapse;
+
+    background:
+        var(--card);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+
+.result-table th,
+.result-table td {
+
+    padding: 17px;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.result-table th {
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.pass {
+
+    color:
+        var(--success);
+
+    font-weight: 700;
+}
+
+
+.arrear {
+
+    color:
+        var(--danger);
+
+    font-weight: 700;
+}
+
+
+.result-actions {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =====================================================
+   CGPA MODAL
+===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.65);
+
+    backdrop-filter:
+        blur(8px);
+
+    z-index: 500;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+.modal-card {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    text-align: center;
+}
+
+
+.modal-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin:
+        auto auto 18px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(244,196,48,0.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+}
+
+
+.modal-cgpa {
+
+    font-size: 55px;
+
+    font-weight: 900;
+
+    color:
+        var(--green);
+
+    margin:
+        15px 0;
+}
+
+
+.modal-card p {
+
+    color:
+        var(--muted);
+
+    line-height: 1.6;
+
+    margin-bottom: 22px;
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print {
+
+    header,
+    .back-btn,
+    .result-actions {
+
+        display: none !important;
+    }
+
+
+    body {
+
+        background:
+            white;
+
+        color:
+            black;
+    }
+
+
+    #resultsPage {
+
+        display:
+            block !important;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:850px) {
+
+    .options {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .details {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .semester-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .year-selection {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .result-summary {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+@media(max-width:600px) {
+
+    header {
+
+        padding:
+            0 20px;
+    }
+
+
+    main {
+
+        padding:
+            45px 18px;
+    }
+
+
+    .details {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .year-selection {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .semester-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .cgpa-box {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap: 20px;
+    }
+
+
+    .result-table {
+
+        font-size:
+            12px;
+    }
+
+
+    .result-table th,
+    .result-table td {
+
+        padding:
+            10px 7px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-mark">
+            S
+        </div>
+
+        SIET <span>ALL IN ONE</span>
+
+    </div>
+
+
+    <button
+        class="theme-btn"
+        id="themeBtn"
+        onclick="toggleTheme()"
+    >
+        ☾
+    </button>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section
+    id="homePage"
+    class="page active"
+>
+
+    <div class="hero">
+
+        <div class="badge">
+            STUDENT DIGITAL PORTAL
+        </div>
+
+
+        <h1>
+
+            Everything You Need,
+            <span>In One Place.</span>
+
+        </h1>
+
+
+        <p>
+
+            Access your academic profile,
+            semester results and academic
+            information through
+
+            <strong>
+                SIET ALL IN ONE
+            </strong>.
+
+        </p>
+
+
+        <div class="institution">
+
+            SRI SHAKTHI INSTITUTE OF ENGINEERING
+            AND TECHNOLOGY, COIMBATORE
+
+        </div>
+
+    </div>
+
+
+
+    <div class="options">
+
+
+        <div
+            class="option-card"
+            onclick="showPage('profilePage')"
+        >
+
+            <div class="option-icon">
+                👤
+            </div>
+
+            <h2>
+                Check Profile
+            </h2>
+
+            <p>
+
+                View your student information,
+                academic details and year of study.
+
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="option-card"
+            onclick="showPage('yearPage')"
+        >
+
+            <div class="option-icon">
+                📚
+            </div>
+
+            <h2>
+                Check Semester Results
+            </h2>
+
+            <p>
+
+                Select your current year and
+                access only the semesters available
+                for your academic level.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFILE
+===================================================== -->
+
+<section
+    id="profilePage"
+    class="page"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Student Profile
+            </h1>
+
+            <p style="color:var(--muted);">
+                Your academic information
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-btn"
+            onclick="showPage('homePage')"
+        >
+            ← Home
+        </button>
+
+    </div>
+
+
+
+    <div class="profile-card">
+
+
+        <div class="profile-top">
+
+            <div class="avatar">
+                AK
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Arjun Kumar
+                </h2>
+
+                <p>
+                    Biomedical Engineering • Second Year
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="details">
+
+
+            <div class="detail">
+
+                <label>
+                    Registration Number
+                </label>
+
+                <strong>
+                    24BME001
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Class
+                </label>
+
+                <strong>
+                    II BME
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Section
+                </label>
+
+                <strong>
+                    A
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Department
+                </label>
+
+                <strong>
+                    Biomedical Engineering
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Year of Study
+                </label>
+
+                <strong>
+                    Second Year
+                </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Academic Status
+                </label>
+
+                <strong
+                    style="color:var(--success);"
+                >
+                    Active
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="cgpa-box">
+
+        <div>
+
+            <p>
+                Current Academic Standing
+            </p>
+
+            <div class="cgpa-value">
+                Excellent
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Current Year
+            </p>
+
+            <strong style="font-size:25px;">
+                Second Year
+            </strong>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     YEAR SELECTION
+===================================================== -->
+
+<section
+    id="yearPage"
+    class="page"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Select Your Year
+            </h1>
+
+            <p style="color:var(--muted);">
+
+                Your year determines which semesters
+                are available.
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-btn"
+            onclick="showPage('homePage')"
+        >
+            ← Home
+        </button>
+
+    </div>
+
+
+
+    <div class="year-selection">
+
+
+        <div
+            class="year-card"
+            onclick="selectYear(1)"
+        >
+
+            <div class="year-number">
+                01
+            </div>
+
+            <h3>
+                First Year
+            </h3>
+
+            <p>
+                Semesters 1–2
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="year-card"
+            onclick="selectYear(2)"
+        >
+
+            <div class="year-number">
+                02
+            </div>
+
+            <h3>
+                Second Year
+            </h3>
+
+            <p>
+                Semesters 1–4
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="year-card"
+            onclick="selectYear(3)"
+        >
+
+            <div class="year-number">
+                03
+            </div>
+
+            <h3>
+                Third Year
+            </h3>
+
+            <p>
+                Semesters 1–6
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="year-card"
+            onclick="selectYear(4)"
+        >
+
+            <div class="year-number">
+                04
+            </div>
+
+            <h3>
+                Fourth Year
+            </h3>
+
+            <p>
+                Semesters 1–8
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SEMESTER PAGE
+===================================================== -->
+
+<section
+    id="semesterPage"
+    class="page"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1 id="semesterPageTitle">
+                Available Semesters
+            </h1>
+
+            <p
+                id="semesterPageSubtitle"
+                style="color:var(--muted);"
+            >
+                Select a semester
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-btn"
+            onclick="showPage('yearPage')"
+        >
+            ← Change Year
+        </button>
+
+    </div>
+
+
+
+    <div
+        id="semesterGrid"
+        class="semester-grid"
+    >
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section
+    id="loginPage"
+    class="page"
+>
+
+
+    <div class="login-container">
+
+
+        <div class="page-header">
+
+            <h1>
+                Student Login
+            </h1>
+
+
+            <button
+                class="back-btn"
+                onclick="showPage('semesterPage')"
+            >
+                ← Back
+            </button>
+
+        </div>
+
+
+
+        <div class="login-card">
+
+
+            <h2 id="selectedSemesterTitle">
+                Semester Results
+            </h2>
+
+
+            <p>
+                Enter your credentials to access your result.
+            </p>
+
+
+
+            <div
+                id="loginError"
+                class="error"
+            >
+
+                Incorrect registration number
+                or password.
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+                    Registration Number
+                </label>
+
+
+                <input
+                    type="text"
+                    id="regNo"
+                    placeholder="Enter registration number"
+                >
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+                    Password
+                </label>
+
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                    >
+
+
+                    <button
+                        class="show-password"
+                        onclick="togglePassword()"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                class="primary-btn"
+                style="width:100%;"
+                onclick="login()"
+            >
+                View Results
+            </button>
+
+
+
+            <div class="demo-info">
+
+                <strong>
+                    Demo Account
+                </strong>
+
+                <br><br>
+
+                Registration No:
+                <strong>
+                    24BME001
+                </strong>
+
+                <br>
+
+                Password:
+                <strong>
+                    demo123
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
+<section
+    id="resultsPage"
+    class="page"
+>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h1 id="resultTitle">
+                Semester Results
+            </h1>
+
+            <p style="color:var(--muted);">
+
+                Arjun Kumar • 24BME001
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-btn"
+            onclick="showPage('semesterPage')"
+        >
+            ← Semesters
+        </button>
+
+    </div>
+
+
+
+    <div class="result-summary">
+
+
+        <div class="summary-card">
+
+            <span>
+                Semester
+            </span>
+
+            <strong id="semesterNumber">
+                1
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                Total Credits
+            </span>
+
+            <strong>
+                24
+            </strong>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                Result Status
+            </span>
+
+            <strong class="pass">
+                PASS
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div style="overflow-x:auto;">
+
+        <table class="result-table">
+
+
+            <thead>
+
+                <tr>
+
+                    <th>S.No</th>
+
+                    <th>Subject Code</th>
+
+                    <th>Subject Name</th>
+
+                    <th>Grade</th>
+
+                    <th>Result Status</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="resultBody">
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+
+
+    <div class="result-actions">
+
+
+        <button
+            class="primary-btn"
+            onclick="showCGPA()"
+        >
+            🧮 Check CGPA
+        </button>
+
+
+        <button
+            class="secondary-btn"
+            onclick="window.print()"
+        >
+            🖨 Print Result
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     CGPA MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="cgpaModal"
+>
+
+
+    <div class="modal-card">
+
+
+        <div class="modal-icon">
+            🏆
+        </div>
+
+
+        <h2>
+            Your Current CGPA
+        </h2>
+
+
+        <div class="modal-cgpa">
+            8.67
+        </div>
+
+
+        <p>
+
+            Your current academic performance
+            is based on the available semester results.
+
+        </p>
+
+
+        <button
+            class="primary-btn"
+            onclick="closeCGPA()"
+        >
+            Close
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   STUDENT INFORMATION
+===================================================== */
+
+
+/*
+    Change this value to test different years.
+
+    1 = First Year
+    2 = Second Year
+    3 = Third Year
+    4 = Fourth Year
+*/
+
+const student = {
+
+    name: "Arjun Kumar",
+
+    registrationNumber: "24BME001",
+
+    year: 2,
+
+    department:
+        "Biomedical Engineering"
+
+};
+
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+
+function showPage(pageId) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+
+function toggleTheme() {
+
+    document.body
+        .classList.toggle("dark");
+
+
+    const button =
+        document.getElementById("themeBtn");
+
+
+    if (
+        document.body
+        .classList.contains("dark")
+    ) {
+
+        button.textContent = "☀";
+
+    }
+
+    else {
+
+        button.textContent = "☾";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("password");
+
+
+    if (
+        password.type === "password"
+    ) {
+
+        password.type = "text";
+
+    }
+
+    else {
+
+        password.type = "password";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   YEAR → SEMESTER LOGIC
+===================================================== */
+
+
+/*
+    This is the important part.
+
+    First Year  → 2 semesters
+    Second Year → 4 semesters
+    Third Year  → 6 semesters
+    Fourth Year → 8 semesters
+*/
+
+
+let selectedYear =
+    student.year;
+
+
+let selectedSemester =
+    1;
+
+
+
+function selectYear(year) {
+
+    selectedYear =
+        year;
+
+
+    generateSemesters();
+
+
+    showPage(
+        "semesterPage"
+    );
+
+}
+
+
+
+/* =====================================================
+   GENERATE SEMESTERS
+===================================================== */
+
+
+function generateSemesters() {
+
+    const grid =
+        document.getElementById(
+            "semesterGrid"
+        );
+
+
+    const title =
+        document.getElementById(
+            "semesterPageTitle"
+        );
+
+
+    const subtitle =
+        document.getElementById(
+            "semesterPageSubtitle"
+        );
+
+
+    /*
+        Number of semesters available
+        = Year × 2
+    */
+
+    const numberOfSemesters =
+        selectedYear * 2;
+
+
+    title.textContent =
+        getYearName(selectedYear)
+        +
+        " — Available Semesters";
+
+
+    subtitle.textContent =
+        "Showing Semesters 1–"
+        +
+        numberOfSemesters
+        +
+        " based on your academic year.";
+
+
+    grid.innerHTML = "";
+
+
+    for (
+        let semester = 1;
+        semester <= numberOfSemesters;
+        semester++
+    ) {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "semester";
+
+
+        card.onclick =
+            function() {
+
+                selectSemester(
+                    semester
+                );
+
+            };
+
+
+        card.innerHTML = `
+
+            <div class="semester-icon">
+
+                ${String(semester)
+                    .padStart(2,"0")}
+
+            </div>
+
+            <strong>
+                Semester ${semester}
+            </strong>
+
+            <span>
+                ${
+                    semester <= 2
+                    ? "Year 1"
+                    : semester <= 4
+                    ? "Year 2"
+                    : semester <= 6
+                    ? "Year 3"
+                    : "Year 4"
+                }
+            </span>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   YEAR NAME
+===================================================== */
+
+
+function getYearName(year) {
+
+    const names = {
+
+        1: "First Year",
+
+        2: "Second Year",
+
+        3: "Third Year",
+
+        4: "Fourth Year"
+
+    };
+
+
+    return names[year];
+
+}
+
+
+
+/* =====================================================
+   SEMESTER SELECTION
+===================================================== */
+
+
+function selectSemester(
+    semester
+) {
+
+    /*
+        Safety check:
+        Prevent selecting a semester
+        outside the student's year.
+    */
+
+    const maximumSemester =
+        selectedYear * 2;
+
+
+    if (
+        semester >
+        maximumSemester
+    ) {
+
+        alert(
+            "This semester is not available for your current year."
+        );
+
+        return;
+
+    }
+
+
+    selectedSemester =
+        semester;
+
+
+    document
+        .getElementById(
+            "selectedSemesterTitle"
+        )
+        .textContent =
+        "Semester "
+        +
+        semester
+        +
+        " Results";
+
+
+    showPage(
+        "loginPage"
+    );
+
+}
+
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+
+function login() {
+
+    const regNo =
+        document
+        .getElementById("regNo")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    const error =
+        document
+        .getElementById("loginError");
+
+
+    if (
+
+        regNo ===
+        student.registrationNumber
+
+        &&
+
+        password ===
+        "demo123"
+
+    ) {
+
+        error.style.display =
+            "none";
+
+
+        loadResults();
+
+
+        showPage(
+            "resultsPage"
+        );
+
+    }
+
+    else {
+
+        error.style.display =
+            "block";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RESULT DATA
+===================================================== */
+
+
+const results = {
+
+
+    1: [
+
+        [
+            "1",
+            "24BME101",
+            "Engineering Mathematics I",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME102",
+            "Engineering Physics",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME103",
+            "Engineering Chemistry",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "4",
+            "24BME104",
+            "Python Programming",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "5",
+            "24BME105",
+            "Basic Electrical Engineering",
+            "B+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    2: [
+
+        [
+            "1",
+            "24BME201",
+            "Engineering Mathematics II",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME202",
+            "Human Anatomy",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME203",
+            "Biochemistry",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "4",
+            "24BME204",
+            "Electric Circuits",
+            "B+",
+            "PASS"
+        ],
+
+        [
+            "5",
+            "24BME205",
+            "English",
+            "A+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    3: [
+
+        [
+            "1",
+            "24BME301",
+            "Biomedical Instrumentation",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME302",
+            "Signals and Systems",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME303",
+            "Electronic Devices",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "4",
+            "24BME304",
+            "Biomaterials",
+            "B+",
+            "PASS"
+        ],
+
+        [
+            "5",
+            "24BME305",
+            "Probability and Statistics",
+            "A+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    4: [
+
+        [
+            "1",
+            "24BME401",
+            "Biomedical Signal Processing",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME402",
+            "Medical Imaging",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME403",
+            "Biomechanics",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "4",
+            "24BME404",
+            "Microcontrollers",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "5",
+            "24BME405",
+            "Medical Electronics",
+            "B+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    5: [
+
+        [
+            "1",
+            "24BME501",
+            "Biomedical Sensors",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME502",
+            "Medical Instrumentation",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME503",
+            "Digital Signal Processing",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "4",
+            "24BME504",
+            "Artificial Intelligence in Healthcare",
+            "A+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    6: [
+
+        [
+            "1",
+            "24BME601",
+            "Medical Imaging Systems",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME602",
+            "Rehabilitation Engineering",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME603",
+            "Clinical Engineering",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "4",
+            "24BME604",
+            "Biomedical Data Analysis",
+            "A+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    7: [
+
+        [
+            "1",
+            "24BME701",
+            "Advanced Biomedical Engineering",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME702",
+            "Healthcare Technology",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME703",
+            "Medical Device Design",
+            "A+",
+            "PASS"
+        ]
+
+    ],
+
+
+
+    8: [
+
+        [
+            "1",
+            "24BME801",
+            "Biomedical Engineering Project",
+            "A+",
+            "PASS"
+        ],
+
+        [
+            "2",
+            "24BME802",
+            "Industrial Training",
+            "A",
+            "PASS"
+        ],
+
+        [
+            "3",
+            "24BME803",
+            "Project Viva",
+            "A+",
+            "PASS"
+        ]
+
+    ]
+
+};
+
+
+
+/* =====================================================
+   LOAD RESULTS
+===================================================== */
+
+
+function loadResults() {
+
+    const body =
+        document.getElementById(
+            "resultBody"
+        );
+
+
+    const title =
+        document.getElementById(
+            "resultTitle"
+        );
+
+
+    const semesterNumber =
+        document.getElementById(
+            "semesterNumber"
+        );
+
+
+    const data =
+        results[selectedSemester]
+        ||
+        results[1];
+
+
+    title.textContent =
+        "Semester "
+        +
+        selectedSemester
+        +
+        " Results";
+
+
+    semesterNumber.textContent =
+        selectedSemester;
+
+
+    body.innerHTML = "";
+
+
+    data.forEach(
+        row => {
+
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            tr.innerHTML = `
+
+                <td>
+                    ${row[0]}
+                </td>
+
+                <td>
+                    ${row[1]}
+                </td>
+
+                <td>
+                    ${row[2]}
+                </td>
+
+                <td>
+                    <strong>
+                        ${row[3]}
+                    </strong>
+                </td>
+
+                <td
+                    class="${
+                        row[4] === "PASS"
+                        ? "pass"
+                        : "arrear"
+                    }"
+                >
+                    ${row[4]}
+                </td>
+
+            `;
+
+
+            body.appendChild(tr);
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CGPA
+===================================================== */
+
+
+function showCGPA() {
+
+    document
+        .getElementById(
+            "cgpaModal"
+        )
+        .classList.add(
+            "show"
+        );
+
+}
+
+
+function closeCGPA() {
+
+    document
+        .getElementById(
+            "cgpaModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+
+/*
+    When the app opens, the student's
+    year automatically determines the
+    available semesters.
+*/
+
+generateSemesters();
+
+
+</script>
+
+
+</body>
+
+</html>
